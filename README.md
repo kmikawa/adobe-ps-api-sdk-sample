@@ -1,2 +1,27 @@
-# adobe-di-sdk
-Adobe DI SDK Beta
+# Adobe DI SDK Beta
+
+### Example: Steps to set up for using AWS S3
+
+1. Create AWS accont https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html
+1. Set up the AWS CLI and AWS SDKs https://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli-sdk.html
+1. Create a credential to use Photoshop API at https://developer.adobe.com/photoshop/api/signup/?ref=signup (Save `private.key`)
+1. npm install
+1. Save `config/config-template.js` as `config/config.js` and set the configuration (ex: s3://kmikawa/input/)
+1. Place `private.key` into `config` directory
+1. [WORKAROUND] Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
+1. Enter your s3 input/output directories and run `node src/remove-background-batch.js`
+1. See outputs in https://s3.console.aws.amazon.com/s3/buckets or sync your s3 storage (aws s3 sync s3://kmikawa/input/output/ /Users/kmikawa/Desktop/output/)
+
+
+### [OPTIONAL] Create your node project from scratch
+
+1. npm init
+
+1. npm install @adobe/aio-lib-photoshop-api
+https://github.com/adobe/aio-lib-photoshop-api
+
+1. npm install @adobe/jwt-auth
+https://www.npmjs.com/package/@adobe/jwt-auth
+
+1. npm install aws-sdk
+https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html

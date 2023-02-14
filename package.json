@@ -1,0 +1,24 @@
+{
+  "name": "adobe-di-sdk",
+  "version": "1.0.0",
+  "description": "## Steps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmikawa/adobe-di-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmikawa/adobe-di-sdk/issues"
+  },
+  "homepage": "https://github.com/kmikawa/adobe-di-sdk#readme",
+  "dependencies": {
+    "@adobe/aio-lib-photoshop-api": "^0.0.4-beta.6",
+    "@adobe/jwt-auth": "^1.0.1",
+    "aws-sdk": "^2.1313.0"
+  }
+}
