@@ -7,10 +7,10 @@
 1. Create a credential to use Photoshop API at https://developer.adobe.com/photoshop/api/signup/?ref=signup and save `private.key` in config/...
 1. Clone this project: `git clone git@github.com:kmikawa/adobe-di-sdk.git`
 1. Install node modules: `npm install`
-1. Save `config/config-template.js` as `config/config.js` and set the configuration (ex: s3://kmikawa/input/)
+1. Save `config/config-template.js` as `config/config.js` and set the configuration (ex: `s3://kmikawa/input/`)
 1. [WORKAROUND] Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
 1. Enter your s3 input/output directories in `src/remove-background-batch.js` and run `node src/remove-background-batch.js`
-1. See outputs in https://s3.console.aws.amazon.com/s3/buckets or sync your s3 storage (aws s3 sync s3://kmikawa/input/output/ /Users/kmikawa/Desktop/output/)
+1. See outputs in https://s3.console.aws.amazon.com/s3/buckets or sync your s3 storage (ex: `aws s3 sync s3://kmikawa/input/output/ /Users/kmikawa/Desktop/output/`)
 
 
 ### [OPTIONAL] Create your node project from scratch
