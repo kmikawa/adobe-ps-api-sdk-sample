@@ -3,13 +3,13 @@
 ### Example: Steps to set up for using AWS S3
 
 1. Create AWS accont https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html
-1. Set up the AWS CLI and AWS SDKs https://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli-sdk.html
-1. Create a credential to use Photoshop API at https://developer.adobe.com/photoshop/api/signup/?ref=signup (Save `private.key`)
-1. npm install
+1. Set up the AWS CLI and AWS SDKs https://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli-sdk.html and run `aws s3 ls` in Terminal to make sure you can see s3 directories
+1. Create a credential to use Photoshop API at https://developer.adobe.com/photoshop/api/signup/?ref=signup and save `private.key` in config/...
+1. Clone this project: `git clone git@github.com:kmikawa/adobe-di-sdk.git`
+1. Install node modules: `npm install`
 1. Save `config/config-template.js` as `config/config.js` and set the configuration (ex: s3://kmikawa/input/)
-1. Place `private.key` into `config` directory
 1. [WORKAROUND] Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
-1. Enter your s3 input/output directories and run `node src/remove-background-batch.js`
+1. Enter your s3 input/output directories in `src/remove-background-batch.js` and run `node src/remove-background-batch.js`
 1. See outputs in https://s3.console.aws.amazon.com/s3/buckets or sync your s3 storage (aws s3 sync s3://kmikawa/input/output/ /Users/kmikawa/Desktop/output/)
 
 

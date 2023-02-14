@@ -1,7 +1,7 @@
 // -------------------------------------------------
 // Enter your input and output directories in s3
 // -------------------------------------------------
-const inputDir = 'nfl/input/' //your input directory in s3 bucket
+const inputDir = 'input/' //your input directory in s3 bucket
 const outputDir = 'output' //your output directory in s3 bucket
 // -------------------------------------------------
 const awsFunctions = require('../lib/awsFunctions')
