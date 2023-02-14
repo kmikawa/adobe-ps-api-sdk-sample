@@ -11,6 +11,7 @@
 1. Install node modules: `npm install`
 1. Save `config/config-template.js` as `config/config.js` and set the configuration (ex: `s3://kmikawa/input/`)
 1. [OPTIONAL to use actionJSON] Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
+1. Set output href for sample scripts in `src/sample/...` and run (ex: `node src/sample/01_createCutout.js`)
 1. Enter your s3 input/output directories in `src/remove-background-batch.js` and run `node src/remove-background-batch.js`
 1. See outputs in your [S3 bucket](https://s3.console.aws.amazon.com/s3/buckets) or sync your s3 storage (ex: `aws s3 sync s3://kmikawa/input/output/ /Users/kmikawa/Desktop/output/`)
 
