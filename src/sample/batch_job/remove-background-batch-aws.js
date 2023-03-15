@@ -1,9 +1,10 @@
 // -------------------------------------------------
 // Enter your input and output directories in s3
 // -------------------------------------------------
-const inputDir = 'input/' //your input directory in s3 bucket
+const inputDir = 'input/' //your input directory in s3 bucket (ex: s3://<awsConfig.bucketName>/input)
 const outputDir = 'output' //your output directory in s3 bucket
 // -------------------------------------------------
+
 const awsFunctions = require('../../lib/awsFunctions')
 const disdk = require('../../../config/config')
 const actionJsonFunctions = require('../../lib/actionJsonFunctions')

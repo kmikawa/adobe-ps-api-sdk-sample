@@ -8,13 +8,13 @@ async function main() {
     const client = await disdk.initSDK()
 
     const input = {
-      // href: await awsFunctions.getSignedUrl('getObject', 'input/input03.jpg'), //aws s3
+      // href: await awsFunctions.getSignedUrl('getObject', 'input/input03.jpg'), //ex: AWS S3 (s3://<awsConfig.bucketName>/input/input03.jpg)
       href: 'https://raw.githubusercontent.com/kmikawa/testfiles/main/input/input03.jpg',
       storage: disdk.sdk.Storage.EXTERNAL,
     }
 
     const preset = {
-      // href: await awsFunctions.getSignedUrl('getObject', 'input/Auto-BW.xmp'), //aws s3
+      // href: await awsFunctions.getSignedUrl('getObject', 'input/Auto-BW.xmp'), //ex: AWS S3 (s3://<awsConfig.bucketName>/input/Auto-BW.xmp)
       href: 'https://raw.githubusercontent.com/kmikawa/testfiles/main/input/vignette_b.xmp',
       storage: disdk.sdk.Storage.EXTERNAL
     }

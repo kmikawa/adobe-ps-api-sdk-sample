@@ -8,7 +8,7 @@ async function main() {
     const client = await disdk.initSDK()
 
     const input = {
-      // href: await awsFunctions.getSignedUrl('getObject', 'input/input02.psd'), //aws s3
+      // href: await awsFunctions.getSignedUrl('getObject', 'input/input02.psd'), //ex: AWS S3 (s3://<awsConfig.bucketName>/input/input02.psd)
       href: 'https://raw.githubusercontent.com/kmikawa/testfiles/main/input/input02.psd',
       storage: disdk.sdk.Storage.EXTERNAL,
     }
@@ -18,7 +18,7 @@ async function main() {
         {
           name: "so1",
           input: {
-            // href: await awsFunctions.getSignedUrl('getObject', 'input/input02.jpg'), //aws s3
+            // href: await awsFunctions.getSignedUrl('getObject', 'input/input02.jpg'), //ex: AWS S3 (s3://<awsConfig.bucketName>/input/input02.jpg)
       href: 'https://raw.githubusercontent.com/kmikawa/testfiles/main/input/input02.jpg',
             storage: disdk.sdk.Storage.EXTERNAL
           }
