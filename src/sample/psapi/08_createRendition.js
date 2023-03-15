@@ -1,5 +1,5 @@
-const awsFunctions = require('../lib/awsFunctions')
-const disdk = require('../../config/config.js')
+const awsFunctions = require('../../lib/awsFunctions')
+const disdk = require('../../../config/config')
 
 main()
 
@@ -37,7 +37,7 @@ async function main() {
     ]
 
     const job = await client.createRendition(input, output)
-    console.log(`${job.isDone()} - ${job.jobId}`)
+    console.log(`Response: ${JSON.stringify(job,null,2)}`)
 
   } catch (e) {
     console.error(e)

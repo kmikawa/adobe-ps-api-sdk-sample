@@ -1,5 +1,8 @@
+.temp
 node_modules/
 .DS_Store
 config/config.js
 config/private.key
-_temp
+webpack.config.js
+public/
+src/component/

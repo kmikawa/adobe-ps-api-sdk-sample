@@ -11,10 +11,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${file}"
+            "program": "./src/sample/psapi/01_createCutout.js"
+            // ex: "program": "./src/sample/psapi/01_createCutout.js"
+            // ex: "program": "./src/sample/batch_job/remove-background-batch.js"
         }
     ]
 }
-
-// "program": "./src/sample/01_createCutout.js"
-// "program": "./src/script/remove-background-batch.js"

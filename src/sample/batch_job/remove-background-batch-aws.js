@@ -4,9 +4,9 @@
 const inputDir = 'input/' //your input directory in s3 bucket
 const outputDir = 'output' //your output directory in s3 bucket
 // -------------------------------------------------
-const awsFunctions = require('../lib/awsFunctions')
-const actionJsonFunctions = require('../lib/actionJsonFunctions')
-const disdk = require('../../config/config.js')
+const awsFunctions = require('../../lib/awsFunctions')
+const disdk = require('../../../config/config')
+const actionJsonFunctions = require('../../lib/actionJsonFunctions')
 const path = require('path');
 const fs = require('fs')
 let client
@@ -38,6 +38,7 @@ async function createMask(inputSingedUrl, outputSingedUrl, content) {
     }
     const job = await client.createMask(input, output)
     console.log(`${job.isDone()} - ${job.jobId}`)
+    // console.log(`Response: ${JSON.stringify(job,null,2)}`)
 
     const actionJob = await runPhotoshopActions(input, output, content)
   } catch (e) {
@@ -70,9 +71,9 @@ async function runPhotoshopActions(input, mask, content) {
     actionJsonFunctions.setAutoColor().forEach( obj => {
       actionJson.push(obj)
     })
-    actionJsonFunctions.setActionJsonCanvasSize(2048.0, 2048.0, 'center', 'top').forEach( obj => {
-      actionJson.push(obj)
-    })
+    // actionJsonFunctions.setActionJsonCanvasSize(2048.0, 2048.0, 'center', 'top').forEach( obj => {
+    //   actionJson.push(obj)
+    // })
 
     const job = await client.applyPhotoshopActions(
       input,
@@ -98,6 +99,7 @@ async function runPhotoshopActions(input, mask, content) {
         actionJSON: actionJson
       })
       console.log(`${job.isDone()} - ${job.jobId}`)
+      // console.log(`Response: ${JSON.stringify(job,null,2)}`)
   } catch (e) {
     console.error(e)
   }

@@ -1,5 +1,5 @@
-const awsFunctions = require('../lib/awsFunctions')
-const disdk = require('../../config/config.js')
+const awsFunctions = require('../../lib/awsFunctions')
+const disdk = require('../../../config/config')
 
 main()
 
@@ -14,19 +14,13 @@ async function main() {
     }
 
     const output = {
-      href: await awsFunctions.getSignedUrl('putObject', 'output/test07.png'),
+      href: await awsFunctions.getSignedUrl('putObject', 'output/test03.png'),
       storage: disdk.sdk.Storage.EXTERNAL,
       type: disdk.sdk.MimeType.PNG
     }
 
-    const options = {
-      Exposure: 0.50,
-      Contrast: 10,
-      WhiteBalance: "Auto"
-    }
-
-    const job = await client.editPhoto(input, output, options)
-    console.log(`${job.isDone()} - ${job.jobId}`)
+    const job = await client.autoTone(input, output)
+    console.log(`Response: ${JSON.stringify(job,null,2)}`)
 
   } catch (e) {
     console.error(e)

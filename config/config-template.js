@@ -1,12 +1,8 @@
 // *************************************************************************************
-// Your Configuration
+// START - Enter your configuration
 // *************************************************************************************
-// AWS configuration
-const awsConfig = {
-  region: "", // us-east-1
-  identityPoolId: "", // IDENTITY_POOL_ID e.g., eu-east-1:xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
-  bucketName: "" // aws s3 bucket name
-}
+
+// Adobe Photoshop API Configuration
 // https://developer.adobe.com/console/projects -> project -> Service Account (JWT)
 const adobeConfig = {
   clientId: "",
@@ -15,10 +11,20 @@ const adobeConfig = {
   orgId: "",
   metaScopes: ["ent_ccas_sdk"],
 };
+
+// AWS Configuration
+// https://aws.amazon.com/console/
+const awsConfig = {
+  region: "", // us-east-1
+  bucketName: "" // aws s3 bucket name
+  // identityPoolId: "" // [OPTIONAL] IDENTITY_POOL_ID e.g., eu-east-1:xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
+}
+
 // *************************************************************************************
-
-
-
+// END - Enter your configuration
+// *************************************************************************************
+// *************************************************************************************
+// *************************************************************************************
 const sdk = require('@adobe/aio-lib-photoshop-api') // https://github.com/adobe/aio-lib-photoshop-api
 const auth = require("@adobe/jwt-auth") // https://www.npmjs.com/package/@adobe/jwt-auth
 const fs = require("fs")
