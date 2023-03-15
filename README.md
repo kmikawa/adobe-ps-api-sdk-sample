@@ -4,7 +4,7 @@
 
 #### Create Photoshop API credential
 
-1. [Create a credential](https://developer.adobe.com/photoshop/api/signup/?ref=signup) in order to use Photoshop API. When creating a credential, a zip file will be automatically downloaded. It contains your private key (*private.key*).  Please store the private key securely, since Adobe does not retain a copy of it.
+1. [Sing up](https://developer.adobe.com/photoshop/api/signup/?ref=signup) to create a credential in order to use Photoshop API. When creating a credential, a zip file (*config.zip*) will be automatically downloaded. It contains your private key (*private.key*).  Please store the private key securely, since Adobe does not retain a copy of it.
 
 #### Prepare Storage
 
