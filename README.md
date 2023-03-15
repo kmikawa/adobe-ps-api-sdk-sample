@@ -17,7 +17,7 @@ AWS
    1. Test AWS CLI: `aws s3 ls` to list S3 objects
 
 ## Run sample script
-1. Clone this project: `git clone git@github.com:kmikawa/adobe-di-sdk.git`
+1. Clone this project: `git clone https://github.com/kmikawa/adobe-ps-api-sdk-sample.git`
 1. Install node modules: `npm install`
 1. Save `config/config-template.js` as `config/config.js`, open `config/config.js`, and add your configuration (ex: `s3://kmikawa/input/`), save, and close.
 1. Unzip your downloaded *config.zip* and save `private.key` as `config/private.key` in this project
