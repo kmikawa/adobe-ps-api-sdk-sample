@@ -15,9 +15,9 @@ const adobeConfig = {
 // AWS Configuration
 // https://aws.amazon.com/console/
 const awsConfig = {
+  // identityPoolId: "", // [OPTIONAL] IDENTITY_POOL_ID e.g., eu-east-1:xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
   region: "", // us-east-1
   bucketName: "" // aws s3 bucket name
-  // identityPoolId: "" // [OPTIONAL] IDENTITY_POOL_ID e.g., eu-east-1:xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 
 // *************************************************************************************
