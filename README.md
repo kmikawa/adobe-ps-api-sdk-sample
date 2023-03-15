@@ -2,11 +2,11 @@
 
 ### Preparation
 
-##### Create Photoshop API credential
+#### Create Photoshop API credential
 
 1. [Create a credential](https://developer.adobe.com/photoshop/api/signup/?ref=signup) in order to use Photoshop API. When creating a credential, a zip file will be automatically downloaded. It contains your private key (*private.key*).  Please store the private key securely, since Adobe does not retain a copy of it.
 
-##### Prepare Storage
+#### Prepare Storage
 
 AWS
 
@@ -16,7 +16,7 @@ AWS
    1. Configure [AWS CLI options](https://docs.aws.amazon.com/cli/latest/reference/:configure/): `aws configure`
    1. Test AWS CLI: `aws s3 ls` to list S3 objects
 
-### Run sample script
+#### Run sample script
 1. Clone this project: `git clone git@github.com:kmikawa/adobe-di-sdk.git`
 1. Install node modules: `npm install`
 1. Save `config/config-template.js` as `config/config.js`, open `config/config.js`, and add your configuration (ex: `s3://kmikawa/input/`), save, and close.
@@ -24,7 +24,7 @@ AWS
 1. Modify *output href* to use your storage for sample scripts in `src/sample/psapi/...` (ex: `src/sample/psapi/01_createCutout.js`)
 1. Run a sample (ex: `node src/sample/psapi/01_createCutout.js`)
 
-### Run sample script (batch job) - actionJSON endpoint is required
+#### Run sample script (batch job) - actionJSON endpoint is required
 1. Modify input/output directories to use your S3 storage in `src/sample/batch_job/remove-background-batch.js`
 1. Run a sample (ex: `node src/sample/batch_job/remove-background-batch.js`)
 1. See outputs in your [S3 bucket](https://s3.console.aws.amazon.com/s3/buckets)
