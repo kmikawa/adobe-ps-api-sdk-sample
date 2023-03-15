@@ -61,7 +61,7 @@ node src/sample/batch_job/01_createCutout_batch.js
 * You can also use AWS CLI to sync files from your S3 storage into your local machine (ex: `aws s3 sync s3://<awsConfig.bucketName>/input/output/ /Users/<username>/Desktop/output/`)
 
 #### Run a sample scrip for chain batch jobs (src/sample/batch_script/remove-background-batch.js)
-* This sample script requires actionJSON endpoint
+* This sample script requires actionJSON endpoint (actionJSON endpoint is coming soon. Please refer *"[OPTIONAL] To use actionJSON endpoint"* below to enable manually)
 1. Store multiple JPEG files in your S3 storage (ex: s3://<awsConfig.bucketName>/input/...) or modify input/output directories in `src/sample/batch_job/remove-background-batch.js`
 2. Run a sample
 ```
