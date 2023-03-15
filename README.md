@@ -1,6 +1,6 @@
 # Adobe DI SDK Beta (Example)
 
-### Preparation
+## Preparation
 
 #### Create Photoshop API credential
 
@@ -16,7 +16,7 @@ AWS
    1. Configure [AWS CLI options](https://docs.aws.amazon.com/cli/latest/reference/:configure/): `aws configure`
    1. Test AWS CLI: `aws s3 ls` to list S3 objects
 
-#### Run sample script
+## Run sample script
 1. Clone this project: `git clone git@github.com:kmikawa/adobe-di-sdk.git`
 1. Install node modules: `npm install`
 1. Save `config/config-template.js` as `config/config.js`, open `config/config.js`, and add your configuration (ex: `s3://kmikawa/input/`), save, and close.
