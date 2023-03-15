@@ -24,6 +24,8 @@ AWS
 1. Save `config/config-template.js` as `config/config.js`
 1. Fill the following configuration in `config/config.js`, save, and close.
 ```
+// Adobe Photoshop API Configuration
+// https://developer.adobe.com/console/projects -> project -> Service Account (JWT)
 const adobeConfig = {
   clientId: "",
   clientSecret: "",
@@ -33,6 +35,8 @@ const adobeConfig = {
 };
 ```
 ```
+// AWS Configuration
+// https://aws.amazon.com/console/
 const awsConfig = {
   region: "", // us-east-1
   bucketName: "" // aws s3 bucket name
