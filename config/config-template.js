@@ -43,6 +43,7 @@ async function initSDK() {
 
 module.exports = {
   awsConfig,
+  adobeConfig,
   sdk,
   getToken,
   initSDK
