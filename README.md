@@ -43,7 +43,7 @@ const awsConfig = {
 }
 ```
 
-## Run sample script
+## Sample Script
 #### Run a sample script (src/sample/psapi/...)
 1. Run a sample
 ```
