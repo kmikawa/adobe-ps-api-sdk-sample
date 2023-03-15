@@ -34,6 +34,14 @@ AWS
 
 1. Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
 
+## Links
+
+- [Photoshop API documentation](https://developer.adobe.com/photoshop/photoshop-api-docs/api/)
+- [Demo](https://developer.adobe.com/photoshop/api/)
+- [Curl command examples](https://developer.adobe.com/photoshop/photoshop-api-docs/code-sample/)
+- [Create a credential](https://developer.adobe.com/photoshop/api/signup/?ref=signup)
+- [Supported Features](https://developer.adobe.com/photoshop/photoshop-api-docs/features/)
+- [Submit a ticket for support or feedback](https://psd-services.zendesk.com/hc/en-us/requests/new)
 
 <!-- 
 
