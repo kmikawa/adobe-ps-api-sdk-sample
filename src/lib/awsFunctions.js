@@ -1,18 +1,16 @@
 const { awsConfig } = require('../../config/config')
 
 // https://docs.aws.amazon.com/AmazonS3/latest/userguide/example_s3_ListObjects_section.html
-async function listObjects(prefix) {
+async function listObjects(listObjectsInputRequest) {
     const AWS = require('aws-sdk')
     AWS.config.update({"region": awsConfig.region});
     const s3 = new AWS.S3()
-    const params = {
-        Bucket: awsConfig.bucketName,
-        Prefix: prefix,
-        MaxKeys: 5
-    };
-    const data = await s3.listObjectsV2(params).promise()
+    const data = await s3.listObjectsV2(listObjectsInputRequest).promise()
     const regexp = new RegExp(/^((?!DS_Store).)*$/, 'i');
-    const filtered = data.Contents.filter(content => regexp.test(content.Key))
+    // const filtered = data.Contents.filter(content => regexp.test(content.Key))
+    const filtered = data.Contents.filter((file) => {
+        return (file.Key.indexOf('.jpg') > 0);
+    });
     data.Contents = filtered
     return data
 }

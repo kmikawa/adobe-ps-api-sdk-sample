@@ -1,10 +1,10 @@
-# Adobe DI SDK Beta (Example)
+# Adobe DI SDK (Public Beta)
 
 ## Preparation
 
 #### Create Photoshop API credential
 
-1. [Sing up](https://developer.adobe.com/photoshop/api/signup/?ref=signup) to create a credential in order to use Photoshop API. When creating a credential, a zip file (*config.zip*) will be automatically downloaded. It contains your private key (*private.key*).  Please store the private key securely, since Adobe does not retain a copy of it.
+1. [Sing up](https://developer.adobe.com/photoshop/api/signup/?ref=signup) to create a credential in order to use Photoshop API. When creating a credential, a zip file (_config.zip_) will be automatically downloaded. It contains your private key (_private.key_). Please store the private key securely, since Adobe does not retain a copy of it.
 
 #### Prepare Storage
 
@@ -13,16 +13,17 @@ AWS
 1. [Create AWS accont](https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html)
 1. Set up AWS CLI
    1. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-   1. Configure [AWS CLI options](https://docs.aws.amazon.com/cli/latest/reference/:configure/): `aws configure`
+   1. Configure [AWS CLI options](https://docs.aws.amazon.com/cli/latest/reference/configure/index.html): `aws configure`
    1. Test AWS CLI: `aws s3 ls` to list S3 objects
 
 #### Download this project
 
 1. Clone this project: `git clone https://github.com/kmikawa/adobe-ps-api-sdk-sample.git`
 1. Install node modules: `npm install`
-1. Unzip your downloaded *config.zip* and save `private.key` as `config/private.key` in this project
+1. Unzip your downloaded _config.zip_ and save `private.key` as `config/private.key` in this project
 1. Save `config/config-template.js` as `config/config.js`
 1. Fill the following configuration in `config/config.js`, save, and close.
+
 ```
 // Adobe Photoshop API Configuration
 // https://developer.adobe.com/console/projects -> project -> Service Account (JWT)
@@ -34,6 +35,7 @@ const adobeConfig = {
   metaScopes: ["ent_ccas_sdk"],
 };
 ```
+
 ```
 // AWS Configuration
 // https://aws.amazon.com/console/
@@ -44,35 +46,44 @@ const awsConfig = {
 ```
 
 ## Sample Script
+
 #### Run a sample script (src/sample/psapi/...)
+
 1. Run a sample
+
 ```
 node src/sample/psapi/01_createCutout.js
 ```
+
 2. Find your output file in your S3 storage, output directory (ex: s3://<awsConfig.bucketName>/output/...)
 
 #### Run a sample scrip for a batch job (src/sample/batch_script/...)
+
 1. Store multiple JPEG files in your S3 storage (ex: s3://<awsConfig.bucketName>/input/...) or modify input/output directories in the sample script.
+```
+// -------------------------------------------------
+// Enter your parameters
+// -------------------------------------------------
+const inputDir = 'input/' //your input directory in S3 bucket (ex: s3://<awsConfig.bucketName>/input)
+const outputDir = 'output' //your output directory in S3 bucket (ex: s3://<awsConfig.bucketName>/input/output)
+
+const listObjectsInputRequest = { //URI Request Parameters
+  // Add more request as you like.  see https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html for more details
+  Bucket: awsConfig.bucketName, //Bucket name to list.
+  Prefix: inputDir, // Keys that begin with the indicated prefix.
+  MaxKeys: 5 // Sets the maximum number of keys returned in the response. By default the action returns up to 1,000 key names.
+};
+// -------------------------------------------------
+```
 2. Run a sample
+
 ```
 node src/sample/batch_job/01_createCutout_batch.js
 ```
+
 3. Find your output files in your S3 storage, output directory (ex: s3://<awsConfig.bucketName>/input/output/...)
-* You can also use AWS CLI to sync files from your S3 storage into your local machine (ex: `aws s3 sync s3://<awsConfig.bucketName>/input/output/ /Users/<username>/Desktop/output/`)
 
-#### Run a sample scrip for chain batch jobs (src/sample/batch_script/remove-background-batch.js)
-* This sample script requires actionJSON endpoint (actionJSON endpoint is coming soon. Please refer *"[OPTIONAL] To use actionJSON endpoint"* below to enable manually)
-1. Store multiple JPEG files in your S3 storage (ex: s3://<awsConfig.bucketName>/input/...) or modify input/output directories in `src/sample/batch_job/remove-background-batch.js`
-2. Run a sample
-```
-node src/sample/batch_job/remove-background-batch.js
-```
-3. Find your output files in your S3 storage, output directory (ex: s3://<awsConfig.bucketName>/input/output/...)
-* You can also use AWS CLI to sync files from your S3 storage into your local machine (ex: `aws s3 sync s3://<awsConfig.bucketName>/input/output/ /Users/<username>/Desktop/output/`)
-
-#### [OPTIONAL] To use actionJSON endpoint
-
-1. Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
+- You can also use AWS CLI to sync files from your S3 storage into your local machine (ex: `aws s3 sync s3://<awsConfig.bucketName>/input/output/ /Users/<username>/Desktop/output/`)
 
 ## Links
 
@@ -82,31 +93,3 @@ node src/sample/batch_job/remove-background-batch.js
 - [Create a credential](https://developer.adobe.com/photoshop/api/signup/?ref=signup)
 - [Supported Features](https://developer.adobe.com/photoshop/photoshop-api-docs/features/)
 - [Submit a ticket for support or feedback](https://psd-services.zendesk.com/hc/en-us/requests/new)
-
-<!-- 
-
-#### [OPTIONAL] To use actionJSON
-
-1. Change `"/pie/psdService/photoshopActions"` to `"/pie/psdService/actionJSON"` in node_modules/@adobe/aio-lib-photoshop-api/spec/api.json
-
-#### [OPTIONAL] Refine Results
-
-1. npx webpack ./src/component/s3.js --mode development --target web --no-devtool -o ./public
-// node s3.js
-
-1. open public/index.html
-
-#### [OPTIONAL] Create your node project from scratch
-
-1. npm init
-
-1. npm install @adobe/aio-lib-photoshop-api
-   https://github.com/adobe/aio-lib-photoshop-api
-
-1. npm install @adobe/jwt-auth
-   https://www.npmjs.com/package/@adobe/jwt-auth
-
-1. npm install aws-sdk
-   https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html
-
--->
