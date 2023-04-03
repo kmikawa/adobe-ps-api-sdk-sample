@@ -20,8 +20,12 @@ async function main() {
     }
 
     const options = {
-      actionJSON: [
-        {"_obj":"oilPaint","brushScale":0.8,"cleanliness":2.3,"lightDirection":-60,"lightingOn":true,"microBrush":10.0,"specularity":1.3,"stylization":4.0}
+      actions: [
+        {
+          // href: await awsFunctions.getSignedUrl('getObject', 'input/fisheye.atn'), //ex: AWS S3 (s3://<awsConfig.bucketName>/input/fisheye.atn)
+          href: 'https://github.com/kmikawa/testfiles/raw/main/input/fisheye.atn',
+          storage: disdk.sdk.Storage.EXTERNAL,
+        }
       ]
     }
 

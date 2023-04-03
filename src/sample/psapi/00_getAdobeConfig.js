@@ -1,3 +1,6 @@
+// This script is to generate a Bearer Token.
+// node src/sample/psapi/00_getAdobeConfig.js
+
 const disdk = require('../../../config/config')
 
 main()
