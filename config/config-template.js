@@ -30,6 +30,9 @@ const auth = require("@adobe/jwt-auth") // https://www.npmjs.com/package/@adobe/
 const fs = require("fs")
 const path = require('path');
 
+const { description, version } = require('../package.json');
+const userAgentHeader = `${description}/${version}`
+
 async function getToken() {
     adobeConfig.privateKey = fs.readFileSync(`${__dirname}/private.key`)
     const token = await auth(adobeConfig)
@@ -38,7 +41,9 @@ async function getToken() {
 
 async function initSDK() {
   const token = await getToken()
-  return await sdk.init(adobeConfig.orgId, adobeConfig.clientId, token)
+  return await sdk.init(adobeConfig.orgId, adobeConfig.clientId, token, undefined, {
+    'User-Agent': userAgentHeader
+  })
 }
 
 module.exports = {
