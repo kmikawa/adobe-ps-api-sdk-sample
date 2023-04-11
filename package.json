@@ -1,7 +1,7 @@
 {
   "name": "adobe-di-sdk",
   "version": "1.0.0",
-  "description": "Adobe I/O Photoshop API Library",
+  "description": "Adobe Photoshop API SDK",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
