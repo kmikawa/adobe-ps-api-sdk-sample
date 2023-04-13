@@ -1,3 +1,6 @@
+// How to run:
+// node src/sample/psapi/01_createCutout.js
+
 const awsFunctions = require('../../lib/awsFunctions')
 const disdk = require('../../../config/config')
 
