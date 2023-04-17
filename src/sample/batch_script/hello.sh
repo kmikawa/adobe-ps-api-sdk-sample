@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Copyright 2022 Adobe
 # All Rights Reserved.
 
@@ -5,7 +7,6 @@
 # accordance with the terms of the Adobe license agreement accompanying
 # it.
 
-#!/bin/bash
 # set -x
 
 # ************************************
